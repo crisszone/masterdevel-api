@@ -11,8 +11,8 @@ export class MessageRoute {
     constructor() {
         this.router
             .post("/", this.messageController.post)
-            .get("/id/:id", this.messageController.getById)
-            .get("/tag/:tag", this.messageController.getByTag)
+            .get("/", this.messageController.index)
+            .get("/:id", this.messageController.find)
     }
 }
 

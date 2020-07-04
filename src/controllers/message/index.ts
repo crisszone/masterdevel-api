@@ -36,7 +36,7 @@ export class MessageController {
      * @param req 
      * @param res 
      */
-    getById(req: Request, res: Response) {
+    find(req: Request, res: Response) {
         try {
             let id = req.params.id;
             // find the message by id
@@ -55,11 +55,11 @@ export class MessageController {
      * @param req 
      * @param res 
      */
-    getByTag(req: Request, res: Response) {
+    index(req: Request, res: Response) {
         try {
-            let tag = req.params.tag;
+            let tag = <string>req.query.tag;
             // find the messages by tag
-            let results = messages.filter(message => !!(message.tags.indexOf(tag) >= 0));
+            let results = messages.filter(message => !!(!tag || message.tags.indexOf(tag) >= 0));
             // if not exist return error
             if (!results || !results.length) return res.status(404).json({ message: ERROR_NOT_FOUND });
             // if exist return message

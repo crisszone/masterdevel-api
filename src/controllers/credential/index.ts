@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import { credentials } from '../../model/credential';
 import { credentialFeature } from './feature';
 
+const ERROR_403 = 'Forbidden';
 const ERROR_NOT_LOAD = 'Credential does not load';
 const ERROR_INVALID_PARAMS = 'Parameters are invalid';
 
@@ -23,7 +24,7 @@ export class CredentialController {
             // validate if exist credential in storage
             if (credentialStored) {
                 // return error
-                return res.status(403).send();
+                return res.status(403).json(({ message: `${ERROR_403}` }));
             } else {
                 // insert credential in server storage
                 credentials.push(credentialNew);

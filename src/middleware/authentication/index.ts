@@ -12,6 +12,7 @@ export class SessionAuthorizationMiddleware {
                 signature: string,
                 url,
                 signatureValidate,
+                data,
                 credential: Credential;
 
 
@@ -26,10 +27,15 @@ export class SessionAuthorizationMiddleware {
             // validate if exist credential in storage
             if (!credential) return res.status(403).json(({ message: `${ERROR_SESSION}` }));
 
-            // Calculate signature.
-            signatureValidate = crypto.createHmac("sha256", credential.shared_secret).update(url).digest("hex");
+            data = `${key};${url};${JSON.stringify(req.body)}`;
 
-            console.log({ key, route, signature, signatureValidate, credential, url });
+            // Calculate signature.
+            signatureValidate = crypto
+                .createHmac("sha256", credential.shared_secret)
+                .update(data)
+                .digest("hex");
+
+            console.log({ headers: req.headers, signatureValidate, url, data });
             // Compare signatures.
             if (signatureValidate === signature) next();
             else return res.status(403).json(({ message: `${ERROR_SESSION}` }));
