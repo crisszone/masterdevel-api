@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { credentials } from '../../model/credential';
+import { credentialFeature } from './feature';
 
 const ERROR_NOT_LOAD = 'Credential does not load';
 const ERROR_INVALID_PARAMS = 'Parameters are invalid';
@@ -18,7 +19,7 @@ export class CredentialController {
             if (!credentialNew.key || !credentialNew.shared_secret)
                 return res.status(400).json(({ message: `${ERROR_INVALID_PARAMS}` }));
             // find in server storage
-            let credentialStored = credentials.find(credential => credentialNew.key == credential.key);
+            let credentialStored = credentialFeature.findByKey(credentialNew.key);
             // validate if exist credential in storage
             if (credentialStored) {
                 // return error
