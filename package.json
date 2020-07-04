@@ -1,8 +1,51 @@
 {
-    "name": "masterdevel-api",
-    "version": "0.0.1",
-    "author": {
-        "email": "salguero.develop@gmail.com",
-        "name": "Cristian Villatoro"
-    }
+  "name": "masterdevel-api",
+  "version": "0.0.1",
+  "author": "Cristian Villatoro <salguero.develop@gmail.com>",
+  "description": "API SERVER of testing for Master Devel",
+  "main": "dist/server.js",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "lint": "tslint -c tslint.json -p tsconfig.json --fix",
+    "tsc": "tsc",
+    "build": "npm-run-all clean lint tsc",
+    "dev:start": "npm-run-all build start",
+    "dev": "nodemon --watch src -e ts,pug,css --exec npm run dev:start",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crisszone/pasterdevel-api.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crisszone/pasterdevel-api/issues"
+  },
+  "homepage": "https://github.com/crisszone/pasterdevel-api#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.6",
+    "@types/helmet": "0.0.47",
+    "@types/morgan": "^1.9.1",
+    "@types/node": "^14.0.14",
+    "@types/shelljs": "^0.8.8",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.4",
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "tslib": "^2.0.0"
+  }
 }
