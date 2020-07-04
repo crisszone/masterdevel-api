@@ -12,7 +12,20 @@ Install [NodeJS](https://nodejs.org/es/download/) 12.18.x or superior
 
 ### Install instructions
 
-* Download this repository
-* Run this command in the project root to install the dependencies
+Download this repository and run this command in the project root to install the dependencies
 
 ``` npm install ```
+
+### Running
+
+Run this command to start development mode
+
+``` npm run dev ```
+
+To build a production version run this command
+
+``` npm run build ```
+
+to run the production version (after building the production version)
+
+``` npm run start ```
