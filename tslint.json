@@ -1,10 +1,10 @@
 {
-    "defaultSeverity": "error",
-    "extends": [],
-    "jsRules": {},
-    "rules": {
-        "trailing-comma": [false]
-    },
-    "rulesDirectory": [],
-    "no-console": [true, "log", "error"]
+  "defaultSeverity": "error",
+  "extends": [],
+  "jsRules": {},
+  "no-console": [true, "log", "error"],
+  "rules": {
+    "trailing-comma": [false]
+  },
+  "rulesDirectory": []
 }
