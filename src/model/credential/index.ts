@@ -1,0 +1,1 @@
+export var credentials: Array<Credential> = [];
