@@ -12,7 +12,7 @@ Install [NodeJS](https://nodejs.org/es/download/) 12.18.x or superior
 
 ### Install instructions
 
-Download this repository
-Run this command in the project root to install the dependencies
+* Download this repository
+* Run this command in the project root to install the dependencies
 
 ``` npm install ```
