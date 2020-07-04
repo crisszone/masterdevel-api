@@ -23,7 +23,6 @@ export class MessageController {
             let _id = uuidv4();
             // insert message in server storege
             messages.push(Object.assign({ _id }, messageNew));
-            console.error(messageNew, messages);
             // return result
             return res.status(200).send({ id: _id })
         } catch (error) {

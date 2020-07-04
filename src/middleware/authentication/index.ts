@@ -35,7 +35,6 @@ export class SessionAuthorizationMiddleware {
                 .update(data)
                 .digest("hex");
 
-            console.log({ headers: req.headers, signatureValidate, url, data });
             // Compare signatures.
             if (signatureValidate === signature) next();
             else return res.status(403).json(({ message: `${ERROR_SESSION}` }));
